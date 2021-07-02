@@ -1,0 +1,11 @@
+numpy==1.19.5
+scikit-learn==0.24.2
+scipy==1.6.3
+tensorflow>=2.5
+deepfeatx==0.1.0b0
+Pillow==8.2.0
+fastapi==0.65.1
+python-multipart==0.0.5
+PyYAML==5.4.1
+requests==2.25.1
+uvicorn==0.14.0

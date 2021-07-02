@@ -1,0 +1,14 @@
+FROM python:3.8-slim
+
+ARG API_HOST
+ARG API_PROTOCOL
+
+ENV API_HOST=${API_HOST:-localhost:8000}
+ENV API_PROTOCOL=${API_PROTOCOL:-http}
+
+WORKDIR /opt/webapp
+COPY . ./
+
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+CMD streamlit run index.py --server.port $PORT

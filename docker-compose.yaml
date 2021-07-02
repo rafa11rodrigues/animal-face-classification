@@ -1,0 +1,29 @@
+version: "3.9"
+
+networks:
+    animal-face-network:
+        driver: bridge
+
+
+services:
+    api:
+        build: api
+        image: animal-face-api
+        environment:
+            - PORT=8000
+        ports:
+            - 8000:8000
+        networks:
+            - animal-face-network
+
+    webapp:
+        build: webapp
+        image: animal-face-webapp
+        environment:
+            - PORT=4200
+            - API_HOST=api:8000
+            - API_PROTOCOL=http
+        ports:
+            - 4200:4200
+        networks:
+            - animal-face-network
